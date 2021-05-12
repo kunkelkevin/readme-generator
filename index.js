@@ -9,7 +9,7 @@ const questions = () => {
     {
       type: "input",
       name: "title",
-      message: "Please enter the title of the Readme file.",
+      message: "Please enter the title of the Readme file (Required):",
       validate: (titleInput) => {
         if (titleInput) {
           return true;
@@ -20,9 +20,21 @@ const questions = () => {
       },
     },
     {
+      type: "confirm",
+      name: "details",
+      message:
+        "Do you want detailed instructions on what is needed in each section?",
+    },
+    {
       type: "input",
       name: "description",
-      message: "Enter the description for the Readme.",
+      message: "Enter the description for the program (Required):",
+      when: ({ details }) => {
+        if (details) {
+          console.log("Other info is add");
+        }
+        return true;
+      },
       validate: (descInput) => {
         if (descInput) {
           return true;
@@ -35,28 +47,38 @@ const questions = () => {
     {
       type: "input",
       name: "install",
-      message: "Enter the installation instructions.",
+      message: "Enter the installation instructions:",
     },
     {
       type: "input",
       name: "usage",
-      message: "Enter the usage information",
+      message: "Enter the usage information:",
     },
     {
       type: "input",
       name: "contribute",
-      message: "Enter the contribution guidelines.",
+      message: "Enter the contribution guidelines:",
     },
     {
       type: "input",
       name: "test",
-      message: "Enter the test instructions",
+      message: "Enter the test instructions:",
     },
     {
       type: "list",
       name: "license",
       message: "Choose a license for the application:",
       choices: ["MIT", "GNU AGPLv3", "GNU GPLv3", "Mozilla", "Apache", "Boost"],
+    },
+    {
+      type: "input",
+      name: "github",
+      message: "Enter your GitHub username:",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Enter your email address:",
     },
   ]);
 };
