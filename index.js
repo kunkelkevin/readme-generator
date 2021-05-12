@@ -31,7 +31,9 @@ const questions = () => {
       message: "Enter the description for the program (Required):",
       when: ({ details }) => {
         if (details) {
-          console.log("Other info is add");
+          console.log(
+            "The Description section should be a short description explaining the what, why, and how. What was your motivation? Why did you build this project? What problem does it solve? What did you learn? What makes your project stand out?"
+          );
         }
         return true;
       },
@@ -48,21 +50,53 @@ const questions = () => {
       type: "input",
       name: "install",
       message: "Enter the installation instructions:",
+      when: ({ details }) => {
+        if (details) {
+          console.log(
+            "The Installation section should tell you what are the steps required to install your project? Provide a step-by-step description of how to get the development environment running."
+          );
+        }
+        return true;
+      },
     },
     {
       type: "input",
       name: "usage",
       message: "Enter the usage information:",
+      when: ({ details }) => {
+        if (details) {
+          console.log(
+            "The Usage section should provide instructions and examples for use."
+          );
+        }
+        return true;
+      },
     },
     {
       type: "input",
       name: "contribute",
       message: "Enter the contribution guidelines:",
+      when: ({ details }) => {
+        if (details) {
+          console.log(
+            "The Contribution section should explain the guidelines for how to contribute towards the application from other developers."
+          );
+        }
+        return true;
+      },
     },
     {
       type: "input",
       name: "test",
       message: "Enter the test instructions:",
+      when: ({ details }) => {
+        if (details) {
+          console.log(
+            "The Tests sections should be added if you have written tests for your application.  It should have examples on how to run them."
+          );
+        }
+        return true;
+      },
     },
     {
       type: "list",
