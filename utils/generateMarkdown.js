@@ -1,6 +1,5 @@
 licenseDescr = ``;
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Functions to retrieve basic description and badge associated with the chosen license.
 function renderLicenseBadge(license) {
   switch (license) {
     case "MIT":
@@ -31,6 +30,7 @@ function renderLicenseBadge(license) {
   }
 }
 
+// Creates a table of contents based on what sections are present
 function renderToc(data) {
   let toc = ``;
   if (data.install) {
@@ -60,6 +60,7 @@ function renderToc(data) {
   return toc;
 }
 
+// Creates the different sections based on the user input
 function renderInstall(install) {
   if (install) {
     return `## Installation
@@ -116,7 +117,7 @@ function renderQuestions(github, email) {
   return questionsSection;
 }
 
-// TODO: Create a function to generate markdown for README
+// Creates the markdown by calling in all the different sections.
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
